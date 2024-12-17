@@ -6,7 +6,7 @@ interface UserPageProps {
   posts: UserProps[]; 
 }
 
-const User: React.FC<UserPageProps> = ({ posts }) => {
+const Users: React.FC<UserPageProps> = ({ posts }) => {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-4">Users</h1>
@@ -39,4 +39,4 @@ export async function getStaticProps() {
   };
 }
 
-export default User;
+export default Users;

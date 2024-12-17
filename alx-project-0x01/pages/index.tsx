@@ -2,7 +2,7 @@ import UserCards from "@/components/common/UserCard";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import Posts from "./posts";
-import User from "./users";
+import Users from "./users";
 
 const Home: React.FC = () => {
   return (
@@ -22,7 +22,7 @@ const Home: React.FC = () => {
         </div>
       </main>
       <Posts />
-      <User />
+      <Users />
       <Footer />
     </div>
   )
