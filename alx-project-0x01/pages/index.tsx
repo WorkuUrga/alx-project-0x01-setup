@@ -1,27 +1,10 @@
-import { useEffect, useState } from "react";
-import Header from "@/components/layout/Header";
+import UserCards from "@/components/common/UserCard";
 import Footer from "@/components/layout/Footer";
-import UserPage from "./users";
-import PostCard from "@/components/common/PostCard";
-import { PostProps } from "@/interfaces";
+import Header from "@/components/layout/Header";
+import Posts from "./posts";
+import User from "./users";
 
-const Users: React.FC = () => {
-  const [posts, setPosts] = useState<PostProps[]>([]);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-        const data: PostProps[] = await response.json();
-        setPosts(data);
-      } catch (error) {
-        console.error("Failed to fetch posts:", error);
-      }
-    };
-
-    fetchPosts();
-  }, []);
-
+const Home: React.FC = () => {
   return (
     <div className="flex flex-col h-screen">
       <Header />
@@ -38,24 +21,11 @@ const Users: React.FC = () => {
           </button>
         </div>
       </main>
-      <section className="p-4">
-        <h2 className="text-2xl font-semibold text-center mb-4">Posts</h2>
-        <div className="grid grid-cols-3 gap-2">
-          {posts.map(({ title, body, userId, id }) => (
-            <PostCard
-              key={id}
-              title={title}
-              body={body}
-              userId={userId}
-              id={id}
-            />
-          ))}
-        </div>
-      </section>
-      <UserPage />
+      <Posts />
+      <User />
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default Users;
+export default Home;
